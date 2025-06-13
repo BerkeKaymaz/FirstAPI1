@@ -33,8 +33,8 @@ namespace ProductAPI.Controllers
         public IActionResult UpdateProduct(Product product) { 
             Product product_samp = productService.UpdateProduct(product);
             if (product_samp != null) { 
-                Product product_upd = productService.UpdateProduct(product);
-                return Ok(product_upd);
+                
+                return Ok(product_samp);
             }
             else return BadRequest();
         }
