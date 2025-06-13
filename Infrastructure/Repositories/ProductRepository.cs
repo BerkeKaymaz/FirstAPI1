@@ -27,6 +27,7 @@ namespace Infrastructure.Repositories
         {
             Product product = GetProductById(id);
             context.Products.Remove(product);
+            context.SaveChanges();
         }
 
         public Product GetProductById(int id)

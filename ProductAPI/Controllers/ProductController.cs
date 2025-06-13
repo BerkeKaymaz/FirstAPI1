@@ -29,7 +29,7 @@ namespace ProductAPI.Controllers
             return Ok(product);
         }
         [HttpPut]
-        [Route("Products/{id}")]
+        [Route("Products/Update/{id}")]
         public IActionResult UpdateProduct(Product product) { 
             Product product_samp = productService.UpdateProduct(product);
             if (product_samp != null) { 
@@ -39,7 +39,7 @@ namespace ProductAPI.Controllers
             else return BadRequest();
         }
         [HttpDelete]
-        [Route("Products/{id}")]
+        [Route("Products/Delete/{id}")]
         public IActionResult DeleteProduct(int id) {
             Product product_samp = productService.GetProductById(id);
             if (product_samp != null) {
@@ -49,11 +49,11 @@ namespace ProductAPI.Controllers
             else return NotFound();
         }
         [HttpPost]
-        [Route("Products")]
+        [Route("Products/C")]
         public IActionResult CreateProduct(Product product) { 
             Product cre_product = productService.CreateProduct(product);
             if (cre_product != null) {
-               return CreatedAtAction(nameof(productService.GetProductById), new {id = cre_product.Id},cre_product); 
+               return Ok(cre_product);
             }else return BadRequest();
         }
     }
