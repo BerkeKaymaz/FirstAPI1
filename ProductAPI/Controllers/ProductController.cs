@@ -49,7 +49,7 @@ namespace ProductAPI.Controllers
             else return NotFound();
         }
         [HttpPost]
-        [Route("Products/C")]
+        [Route("Products/Create")]
         public IActionResult CreateProduct(Product product) { 
             Product cre_product = productService.CreateProduct(product);
             if (cre_product != null) {
