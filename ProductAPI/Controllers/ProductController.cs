@@ -31,18 +31,18 @@ namespace ProductAPI.Controllers
         [HttpPut]
         [Route("Products/Update/{id}")]
         public IActionResult UpdateProduct(Product product) { 
-            Product product_samp = productService.UpdateProduct(product);
-            if (product_samp != null) { 
+            Product updatedProduct = productService.UpdateProduct(product);
+            if (updatedProduct != null) { 
                 
-                return Ok(product_samp);
+                return Ok(updatedProduct);
             }
             else return BadRequest();
         }
         [HttpDelete]
         [Route("Products/Delete/{id}")]
         public IActionResult DeleteProduct(int id) {
-            Product product_samp = productService.GetProductById(id);
-            if (product_samp != null) {
+            Product productDeleted = productService.GetProductById(id);
+            if (productDeleted != null) {
                 productService.DeleteProduct(id);
                 return Ok();
             }
@@ -51,9 +51,9 @@ namespace ProductAPI.Controllers
         [HttpPost]
         [Route("Products/Create")]
         public IActionResult CreateProduct(Product product) { 
-            Product cre_product = productService.CreateProduct(product);
-            if (cre_product != null) {
-               return Ok(cre_product);
+            Product createdProduct = productService.CreateProduct(product);
+            if (createdProduct != null) {
+               return Ok(createdProduct);
             }else return BadRequest();
         }
     }
