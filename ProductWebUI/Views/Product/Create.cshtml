@@ -1,0 +1,11 @@
+﻿@model Domain.Models.Product
+
+<h2>Ürün Oluştur</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success mt-2">Save</button>
+</form>
